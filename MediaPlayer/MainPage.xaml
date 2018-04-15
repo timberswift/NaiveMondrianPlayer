@@ -9,7 +9,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height=".1*" />
+            <RowDefinition Height=".15*" />
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
@@ -50,8 +50,11 @@
             </Border>
             
             <Border  Height="5"  Background="#353535"/>
-            <Border  Height="100"  Background="#2586BB"/>
-            <Border  Height="5"  Background="#353535"/>
+            <Border  Height="100"  Background="#2586BB">
+                <Button Name="myCache_button" Content="我的缓存" Click="myCache_button_Click" FontWeight="Bold"
+                        HorizontalAlignment="Center" Background="#2586BB" Foreground="White"/>
+            </Border>
+                <Border  Height="5"  Background="#353535"/>
             
             <StackPanel Width="auto" Height="200" Grid.Column="0" Orientation="Horizontal">
                 <StackPanel Orientation="Vertical" Height="200" Width="73">
@@ -74,8 +77,29 @@
         </StackPanel>
         
         <Border Grid.Column="2" Grid.Row="0"  Background="Yellow">
-            <TextBlock Name="media_title"   HorizontalAlignment="Center"  VerticalAlignment="Center"
-                   Text="Welcome" FontSize="20px" FontFamily="Arial Black" FontWeight="Bold"/>
+            <StackPanel Orientation="Vertical">
+                <Border >
+                    <RelativePanel>
+                        <TextBox Name="url_input" HorizontalAlignment="Left" VerticalAlignment="Center" Width="450"
+                         FontSize="14" Text="http://www.neu.edu.cn/indexsource/neusong.mp3"  Background="White"
+                                 RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"
+                             Margin="0,10,0,10"/>
+                        <TextBlock Name="url_label" Text=" source URL: "  FontWeight="Bold" Margin="0,0,10,0"
+                                   RelativePanel.LeftOf="url_input"   
+                                   RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                        <Button Name="url_ok_button" Content="ok"  Click="url_ok_Click" FontWeight="Bold"
+                                RelativePanel.RightOf="url_input" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                        <Button Name="cache_button"  Margin="0,0,10,0"  Click="cache_button_Click"
+                                FontFamily="Segoe MDL2 Assets" Content="&#xE896;" FontWeight="Bold"
+                                RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                    </RelativePanel>
+                </Border>
+                <Border Height="2" Background="Black">
+                </Border>
+                <TextBlock Name="media_title"   HorizontalAlignment="Center"  VerticalAlignment="Center"
+                   Text="Welcome" FontSize="20px" FontFamily="Arial Black" FontWeight="Bold"
+                           Margin="0,10,0,0"/>
+            </StackPanel>
         </Border>
         
         <Border Grid.Row="2" Grid.Column="2" Background="#FFF8FF">
